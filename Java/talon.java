@@ -1,6 +1,21 @@
 public class Talon {
 
 	public static encode(int lat, int lon) {
+		int val_1 = encode(lat);
+		int val_2 = encode(lon);
+		char first = val_1[0];
+		char second = val_1[1];
+		char third = val_2[0];
+		char fourth = val_2[1];
+
+		char[] r = new char[5];
+		r[0] = (char)"\u2641";
+		r[1] = first;
+		r[2] = second;
+		r[3] = third;
+		r[4] = fourth;
+
+		return r;
 
 	}
 
