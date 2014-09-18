@@ -1,8 +1,8 @@
 public class Talon {
 
-	public static encode(int lat, int lon) {
-		int val_1 = encode(lat);
-		int val_2 = encode(lon);
+	public static char[] encode(long lat, long lon) {
+		char val_1[] = _encode(lat);
+		char val_2[] = _encode(lon);
 		char first = val_1[0];
 		char second = val_1[1];
 		char third = val_2[0];
@@ -16,15 +16,14 @@ public class Talon {
 		r[4] = fourth;
 
 		return r;
-
 	}
 
-	public static decode(str code) {
-
+	public static char[] decode(String code) {
+		return -1;
 	}
 
-	private static _encode(int loc){
-		int val;
+	private static char[] _encode(long loc){
+		long val;
 		if (loc < 0){
 			val = 0;
 			if (loc < -90){
@@ -34,12 +33,12 @@ public class Talon {
 		} else {
 			val = 2000000000;
 			if (loc > 90){
-				val = 3000000000;
+				val = 3000000000L;
 				loc -= 90;
 			}
 		}
 		val += Math.abs(loc) * 10000000;
-		val = Integer.toHexString(Integer.parseInt(val));
+		val = Long.toHexString(Long.parseLong(val));
 		String val_1 = val.substring(0 , 4);
 		String val_2 = val.substring(4);
 		char first = (char)(Integer.parseInt(val_1, 16));
@@ -50,8 +49,8 @@ public class Talon {
 		return result;	
 	}
 
-	private static _decode(int first, int second) {
-
+	private static char[] _decode(int first, int second) {
+		return -1;
 	}
 
 }
